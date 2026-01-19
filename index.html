@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de RH</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        header {
+            background: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .logo-img {
+            height: 120px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .disclaimer {
+            background: linear-gradient(135deg, #fff3cd 0%, #fff9e6 100%);
+            border: 2px solid #ffc107;
+            border-radius: 12px;
+            padding: 20px 25px;
+            margin-bottom: 30px;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.2);
+        }
+
+        .disclaimer-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .disclaimer-content {
+            color: #856404;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .disclaimer-content strong {
+            color: #664d03;
+        }
+
+        .tab-button {
+            background: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .tab-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .tab-button.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .card h3 {
+            color: #333;
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .download-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .download-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .info-banner {
+            background: white;
+            border-left: 4px solid #667eea;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .info-banner h2 {
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 1.5rem;
+        }
+
+        .info-banner p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            padding: 20px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .logo-img {
+                height: 100px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            header {
+                padding: 25px 20px;
+            }
+            
+            .logo-container {
+                gap: 15px;
+            }
+            
+            .logo-img {
+                height: 80px;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .tab-button {
+                padding: 14px 25px;
+                font-size: 1rem;
+            }
+
+            .disclaimer {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .disclaimer-icon {
+                font-size: 1.5rem;
+            }
+
+            .disclaimer-content {
+                font-size: 0.9rem;
+            }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .card {
+                padding: 25px;
+            }
+            
+            .card h3 {
+                font-size: 1.2rem;
+            }
+            
+            .info-banner h2 {
+                font-size: 1.3rem;
+            }
+
+            footer {
+                font-size: 0.9rem;
+            }
+
+            footer p {
+                margin-bottom: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.3rem;
+            }
+            
+            .subtitle {
+                font-size: 0.85rem;
+            }
+            
+            .logo-img {
+                height: 70px;
+            }
+            
+            .tab-button {
+                padding: 12px 20px;
+                font-size: 0.95rem;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+            
+            .card-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <img src="logo-dfc.png" alt="Logo DFC" class="logo-img">
+                <div>
+                    <h1>Portal de RH</h1>
+                    <p class="subtitle">Dirección de Formación Continua</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('federalizado')">Personal Federalizado</button>
+            <button class="tab-button" onclick="showTab('estatal')">Personal Estatal</button>
+        </div>
+
+        <!-- Aviso de Privacidad y Uso -->
+        <div class="disclaimer">
+            <div class="disclaimer-icon">ℹ️</div>
+            <div class="disclaimer-content">
+                <strong>Aviso Importante:</strong> Este portal es únicamente de consulta y descarga de documentos. 
+                <strong>NO solicita, almacena ni recaba ningún dato personal del usuario.</strong> 
+                Los documentos son de carácter informativo y administrativo para el personal de la Dirección de Formación Continua.
+            </div>
+        </div>
+
+        <!-- Personal Federalizado -->
+        <div id="federalizado" class="content-section active">
+            <div class="info-banner">
+                <h2>📋 Personal Federalizado</h2>
+                <p>Aquí encontrarás todos los formatos y documentos importantes para el personal federalizado. Mantén esta página en favoritos para acceso rápido.</p>
+            </div>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">💼</div>
+                    <h3>Días Económicos</h3>
+                    <p>Formato para solicitud de días económicos</p>
+                    <button class="download-button" onclick="downloadFile('dias_economicos_fed.pdf')">📥 Descargar</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">📅</div>
+                    <h3>Calendario de Pagos 2026</h3>
+                    <p>Fechas oficiales de pago - Personal Federalizado</p>
+                    <button class="download-button" onclick="downloadFile('calendario_pagos_fed_2026.pdf')">📥 Descargar</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">📢</div>
+                    <h3>Convocatorias</h3>
+                    <p>No hay convocatorias activas actualmente</p>
+                    <button class="download-button" onclick="downloadFile('convocatorias_fed.pdf')" disabled style="opacity: 0.5; cursor: not-allowed;">Sin convocatorias</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Personal Estatal -->
+        <div id="estatal" class="content-section">
+            <div class="info-banner">
+                <h2>📋 Personal Estatal</h2>
+                <p>Recursos específicos para el personal estatal. Todos los formatos están actualizados según normativa vigente.</p>
+            </div>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">💼</div>
+                    <h3>Días Económicos</h3>
+                    <p>Formato para solicitud de días económicos</p>
+                    <button class="download-button" onclick="downloadFile('dias_economicos_est.pdf')">📥 Descargar</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">📅</div>
+                    <h3>Calendario de Pagos 2026</h3>
+                    <p>Fechas oficiales de pago - Personal Estatal</p>
+                    <button class="download-button" onclick="downloadFile('calendario_pagos_est_2026.jpg')">📥 Descargar</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">📢</div>
+                    <h3>Convocatorias</h3>
+                    <p>No hay convocatorias activas actualmente</p>
+                    <button class="download-button" onclick="downloadFile('convocatorias_est.pdf')" disabled style="opacity: 0.5; cursor: not-allowed;">Sin convocatorias</button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p><strong>📌 Este sitio es informativo y no recopila datos personales</strong></p>
+            <p>Dirección de Formación Continua</p>
+        </footer>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Ocultar todas las secciones
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Desactivar todos los botones
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+            
+            // Activar la sección seleccionada
+            document.getElementById(tabName).classList.add('active');
+            
+            // Activar el botón correspondiente
+            event.target.classList.add('active');
+        }
+
+        function downloadFile(filename) {
+            // Determinar la carpeta según el tipo de personal
+            let carpeta = '';
+            if (filename.includes('_fed')) {
+                carpeta = 'documentos/federalizado/';
+            } else if (filename.includes('_est')) {
+                carpeta = 'documentos/estatal/';
+            }
+            
+            // Abrir el PDF en una nueva pestaña
+            window.open(carpeta + filename, '_blank');
+        }
+    </script>
+</body>
+</html>
