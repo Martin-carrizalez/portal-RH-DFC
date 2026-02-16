@@ -220,6 +220,89 @@
             font-size: 1rem;
         }
 
+        /* Estilos para Páginas Importantes */
+        .links-section {
+            background: linear-gradient(135deg, #e0f2f1 0%, #f1f8f6 100%);
+            border: 2px solid #26a69a;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+            box-shadow: 0 4px 15px rgba(38, 166, 154, 0.2);
+        }
+
+        .links-section h2 {
+            color: #00796b;
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .links-section > p {
+            color: #004d40;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .link-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(38, 166, 154, 0.3);
+            border-color: #26a69a;
+        }
+
+        .link-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .link-card h3 {
+            color: #00796b;
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .link-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .link-button {
+            display: block;
+            background: linear-gradient(135deg, #26a69a 0%, #00796b 100%);
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .link-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(38, 166, 154, 0.4);
+        }
+
         footer {
             text-align: center;
             color: white;
@@ -304,6 +387,22 @@
                 font-size: 1.3rem;
             }
 
+            .links-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .link-card h3 {
+                font-size: 1.1rem;
+            }
+
+            .link-card p {
+                font-size: 0.9rem;
+            }
+
             footer {
                 font-size: 0.9rem;
             }
@@ -339,6 +438,10 @@
                 width: 50px;
                 height: 50px;
                 font-size: 24px;
+            }
+
+            .links-section {
+                padding: 20px;
             }
         }
     </style>
@@ -428,6 +531,48 @@
                     <h3>Convocatorias</h3>
                     <p>No hay convocatorias activas actualmente</p>
                     <button class="download-button" onclick="downloadFile('convocatorias_est.pdf')" disabled style="opacity: 0.5; cursor: not-allowed;">Sin convocatorias</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🎖️</div>
+                    <h3>Estímulo de Años de Servicio</h3>
+                    <p>Formatos para estímulo personal docente</p>
+                    <button class="download-button" onclick="downloadFile('estimulo_anos_servicio_est.pdf')">📥 Descargar</button>
+                </div>
+            </div>
+
+            <!-- Páginas Importantes -->
+            <div class="links-section">
+                <h2>🔗 Páginas Importantes</h2>
+                <p>Links útiles para trámites y consultas del personal estatal</p>
+                
+                <div class="links-grid">
+                    <div class="link-card">
+                        <span class="link-icon">💰</span>
+                        <h3>Recibos de Nómina</h3>
+                        <p>Descarga tus comprobantes de pago</p>
+                        <a href="https://miscomprobantesnomina.jalisco.gob.mx/login" target="_blank" class="link-button">
+                            🔗 Ir al sitio
+                        </a>
+                    </div>
+
+                    <div class="link-card">
+                        <span class="link-icon">📧</span>
+                        <h3>Consulta tu Correo</h3>
+                        <p>Verifica el correo registrado en nómina (necesitas CURP y RFC)</p>
+                        <a href="https://apprende.jalisco.gob.mx/consulta-correo/" target="_blank" class="link-button">
+                            🔗 Ir al sitio
+                        </a>
+                    </div>
+
+                    <div class="link-card">
+                        <span class="link-icon">🏥</span>
+                        <h3>Número de Seguro Social</h3>
+                        <p>Localiza tu NSS en el IMSS</p>
+                        <a href="https://serviciosdigitales.imss.gob.mx/gestionAsegurados-web-externo/asignacionNSS/" target="_blank" class="link-button">
+                            🔗 Ir al sitio
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
