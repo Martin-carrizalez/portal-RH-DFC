@@ -477,6 +477,27 @@ main {
   letter-spacing: 0.05em;
 }
 
+.card-badge-amber {
+  background: rgba(180,83,9,0.10);
+  border-color: rgba(180,83,9,0.30);
+  color: var(--amber);
+}
+
+.card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 14px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.card-list li {
+  font-size: 0.87rem;
+  color: var(--text-mid);
+  line-height: 1.5;
+}
+
 .card h3 {
   font-size: 1.1rem;
   font-weight: 700;
@@ -489,8 +510,7 @@ main {
   font-size: 0.95rem;
   color: var(--text-mid);
   line-height: 1.7;
-  flex: 1;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
 }
 
 .card-actions { display: flex; flex-direction: column; gap: 8px; margin-top: auto; }
@@ -653,6 +673,61 @@ main {
 .link-button:hover {
   background: rgba(13,148,136,0.22);
   border-color: rgba(13,148,136,0.55);
+}
+
+/* ── CALENDAR INSTRUCTIONS (inside card) ── */
+.cal-instructions {
+  margin-top: 14px;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+
+.cal-instructions summary {
+  font-size: 0.82rem;
+  font-family: var(--mono);
+  color: var(--teal);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  user-select: none;
+}
+
+.cal-instructions summary::before {
+  content: '▶';
+  font-size: 0.6rem;
+  transition: transform .2s;
+}
+
+.cal-instructions[open] summary::before { transform: rotate(90deg); }
+
+.cal-instructions summary::-webkit-details-marker { display: none; }
+
+.cal-instructions-body {
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cal-instructions-body strong {
+  font-size: 0.82rem;
+  color: var(--text-mid);
+  margin-top: 6px;
+}
+
+.cal-instructions-body ol {
+  padding-left: 16px;
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.cal-instructions-body .cal-tip {
+  font-size: 0.78rem;
+  margin-top: 8px;
 }
 
 /* ── NO RESULTS ────────────────────────────── */
@@ -843,30 +918,20 @@ footer {
           <button class="btn btn-primary" onclick="downloadFile('calendario_pagos_fed_2026.pdf')">📥 Descargar PDF</button>
           <button class="btn btn-teal" onclick="downloadFile('calendario_pagos_fed_2026.ics')">📲 Agregar a Calendario</button>
         </div>
+        <details class="cal-instructions">
+          <summary>¿Cómo agregar a mi calendario?</summary>
+          <div class="cal-instructions-body">
+            <strong>📱 Android</strong>
+            <ol><li>Toca "📲 Agregar a Calendario"</li><li>Abre el archivo desde Descargas</li><li>Google Calendar pedirá confirmar — toca <em>Aceptar</em></li></ol>
+            <strong>🍎 iPhone</strong>
+            <ol><li>Toca "📲 Agregar a Calendario"</li><li>El teléfono preguntará automáticamente — toca <em>Agregar todos</em></li></ol>
+            <strong>💻 Computadora</strong>
+            <ol><li>Descarga el archivo</li><li>Abre <a href="https://calendar.google.com" target="_blank">calendar.google.com</a></li><li>⚙️ Configuración → Importar y exportar → Importar</li></ol>
+            <div class="cal-tip">✓ Se guardará como "DFC Jalisco · Pagos y Calendario Escolar 2026"</div>
+          </div>
+        </details>
       </div>
 
-    </div>
-
-    <div class="info-panel">
-      <h2>📅 Cómo agregar el calendario a tu dispositivo</h2>
-      <h3>📱 Android</h3>
-      <ol>
-        <li>Toca <strong>"📲 Agregar a Calendario"</strong></li>
-        <li>Abre el archivo desde Descargas</li>
-        <li>Google Calendar preguntará a qué cuenta agregarlo — toca <strong>Aceptar</strong></li>
-      </ol>
-      <h3>🍎 iPhone</h3>
-      <ol>
-        <li>Toca <strong>"📲 Agregar a Calendario"</strong></li>
-        <li>El teléfono preguntará automáticamente — toca <strong>Agregar todos</strong></li>
-      </ol>
-      <h3>💻 Computadora</h3>
-      <ol>
-        <li>Descarga el archivo</li>
-        <li>Abre <a href="https://calendar.google.com" target="_blank">calendar.google.com</a></li>
-        <li>⚙️ Configuración → Importar y exportar → Seleccionar archivo → Importar</li>
-      </ol>
-      <div class="cal-tip">✓ Se guardará como "DFC Jalisco · Pagos y Calendario Escolar 2026"</div>
     </div>
 
     <div class="links-section">
@@ -921,6 +986,7 @@ footer {
 
     <div class="card-grid" id="est-cards">
 
+      <!-- FILA 1 -->
       <div class="card" data-search="días económicos permiso estatal">
         <div class="card-top">
           <div class="card-icon">💼</div>
@@ -933,6 +999,41 @@ footer {
         </div>
       </div>
 
+      <div class="card" data-search="declaración patrimonial sepifape contraloría jalisco intereses situación patrimonio">
+        <div class="card-top">
+          <div class="card-icon">🏛️</div>
+          <span class="card-badge card-badge-amber">OBLIGATORIO</span>
+        </div>
+        <h3>Declaración Patrimonial</h3>
+        <p>Presentación obligatoria ante la Contraloría del Estado a través de <strong>SEPIFAPE</strong>. Aplica para servidores públicos del Poder Ejecutivo Estatal.</p>
+        <ul class="card-list">
+          <li>📋 <strong>Inicial</strong> — al ingresar al servicio público</li>
+          <li>📋 <strong>Modificación</strong> — durante mayo de cada año</li>
+          <li>📋 <strong>Conclusión</strong> — al separarse del cargo</li>
+        </ul>
+        <div class="card-actions">
+          <a href="https://sepifape.jalisco.gob.mx" target="_blank" class="btn btn-primary">🔗 Ir a SEPIFAPE</a>
+        </div>
+      </div>
+
+      <div class="card" data-search="constancia percepciones deducciones nómina mi muro mi sej salario ingresos">
+        <div class="card-top">
+          <div class="card-icon">📄</div>
+          <span class="card-badge">MI MURO</span>
+        </div>
+        <h3>Constancia de Percepciones y Deducciones</h3>
+        <p>Descarga tu constancia directamente desde <strong>Mi Expediente</strong> en la plataforma Mi SEJ. Necesaria para la declaración patrimonial y otros trámites.</p>
+        <ul class="card-list">
+          <li>1️⃣ Ingresa con tu correo institucional</li>
+          <li>2️⃣ Abre <strong>Mi Muro → Mi Expediente</strong></li>
+          <li>3️⃣ Selecciona el año y descarga el PDF</li>
+        </ul>
+        <div class="card-actions">
+          <a href="https://mi.sej.jalisco.gob.mx" target="_blank" class="btn btn-teal">🔗 Ir a Mi SEJ</a>
+        </div>
+      </div>
+
+      <!-- FILA 2 -->
       <div class="card" data-search="calendario pagos quincenas estatal 2026">
         <div class="card-top">
           <div class="card-icon">📅</div>
@@ -944,6 +1045,18 @@ footer {
           <button class="btn btn-primary" onclick="downloadFile('calendario_pagos_est_2026.jpg')">📥 Descargar imagen</button>
           <button class="btn btn-teal" onclick="downloadFile('calendario_pagos_est_2026.ics')">📲 Agregar a Calendario</button>
         </div>
+        <details class="cal-instructions">
+          <summary>¿Cómo agregar a mi calendario?</summary>
+          <div class="cal-instructions-body">
+            <strong>📱 Android</strong>
+            <ol><li>Toca "📲 Agregar a Calendario"</li><li>Abre el archivo desde Descargas</li><li>Google Calendar pedirá confirmar — toca <em>Aceptar</em></li></ol>
+            <strong>🍎 iPhone</strong>
+            <ol><li>Toca "📲 Agregar a Calendario"</li><li>El teléfono preguntará automáticamente — toca <em>Agregar todos</em></li></ol>
+            <strong>💻 Computadora</strong>
+            <ol><li>Descarga el archivo</li><li>Abre <a href="https://calendar.google.com" target="_blank">calendar.google.com</a></li><li>⚙️ Configuración → Importar y exportar → Importar</li></ol>
+            <div class="cal-tip">✓ Se guardará como "DFC Jalisco · Pagos y Calendario Escolar 2026"</div>
+          </div>
+        </details>
       </div>
 
       <div class="card" data-search="hoja servicio estímulo antigüedad años servicio docente">
@@ -961,28 +1074,6 @@ footer {
     </div>
 
     <div class="no-results" id="no-results-msg">No se encontraron documentos.</div>
-
-    <div class="info-panel">
-      <h2>📅 Cómo agregar el calendario a tu dispositivo</h2>
-      <h3>📱 Android</h3>
-      <ol>
-        <li>Toca <strong>"📲 Agregar a Calendario"</strong></li>
-        <li>Abre el archivo desde Descargas</li>
-        <li>Google Calendar preguntará a qué cuenta agregarlo — toca <strong>Aceptar</strong></li>
-      </ol>
-      <h3>🍎 iPhone</h3>
-      <ol>
-        <li>Toca <strong>"📲 Agregar a Calendario"</strong></li>
-        <li>El teléfono preguntará automáticamente — toca <strong>Agregar todos</strong></li>
-      </ol>
-      <h3>💻 Computadora</h3>
-      <ol>
-        <li>Descarga el archivo</li>
-        <li>Abre <a href="https://calendar.google.com" target="_blank">calendar.google.com</a></li>
-        <li>⚙️ Configuración → Importar y exportar → Seleccionar archivo → Importar</li>
-      </ol>
-      <div class="cal-tip">✓ Se guardará como "DFC Jalisco · Pagos y Calendario Escolar 2026"</div>
-    </div>
 
     <div class="links-section">
       <div class="links-section-header">
