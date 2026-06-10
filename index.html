@@ -675,6 +675,60 @@ main {
   border-color: rgba(13,148,136,0.55);
 }
 
+/* ── DFC SYSTEM NOTICE ─────────────────────── */
+.dfc-notice {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: linear-gradient(135deg, rgba(16,185,129,0.08) 0%, rgba(59,130,246,0.06) 100%);
+  border: 1px solid rgba(16,185,129,0.25);
+  border-left: 4px solid var(--green);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.dfc-notice-icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.dfc-notice-text {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.dfc-notice-text strong {
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+.dfc-notice-text span {
+  font-size: 0.87rem;
+  color: var(--text-mid);
+  line-height: 1.5;
+}
+
+.dfc-notice-btn {
+  flex-shrink: 0;
+  background: var(--green);
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: 7px;
+  white-space: nowrap;
+  transition: opacity .2s;
+}
+
+.dfc-notice-btn:hover { opacity: 0.85; }
+
 /* ── CALENDAR INSTRUCTIONS (inside card) ── */
 .cal-instructions {
   margin-top: 14px;
@@ -893,6 +947,15 @@ footer {
       <div class="section-header-line"></div>
     </div>
 
+    <div class="dfc-notice">
+      <div class="dfc-notice-icon">💻</div>
+      <div class="dfc-notice-text">
+        <strong>¿Eres personal del piso 5 o 6 de las oficinas de la DFC?</strong>
+        <span>Los días económicos, pases de salida, comisiones y cambios de horario se registran directamente en la siguiente plataforma.</span>
+      </div>
+      <a href="https://gestion-personal-dfc.streamlit.app/" target="_blank" class="dfc-notice-btn">Abrir Plataforma →</a>
+    </div>
+
     <div class="card-grid" id="fed-cards">
 
       <div class="card" data-search="días económicos permiso federalizado">
@@ -919,7 +982,7 @@ footer {
           <button class="btn btn-teal" onclick="downloadFile('calendario_pagos_fed_2026.ics')">📲 Agregar a Calendario</button>
         </div>
         <details class="cal-instructions">
-          <summary>¿Cómo activar avisos de pago en mi celular?</summary>
+          <summary>¿Cómo agregar a mi calendario?</summary>
           <div class="cal-instructions-body">
             <strong>📱 Android</strong>
             <ol><li>Toca "📲 Agregar a Calendario"</li><li>Abre el archivo desde Descargas</li><li>Google Calendar pedirá confirmar — toca <em>Aceptar</em></li></ol>
@@ -984,6 +1047,15 @@ footer {
       <div class="section-header-line"></div>
     </div>
 
+    <div class="dfc-notice">
+      <div class="dfc-notice-icon">💻</div>
+      <div class="dfc-notice-text">
+        <strong>¿Eres personal del piso 5 o 6 de las oficinas de la DFC?</strong>
+        <span>Los días económicos, pases de salida, comisiones y cambios de horario se registran directamente en la siguiente plataforma.</span>
+      </div>
+      <a href="https://gestion-personal-dfc.streamlit.app/" target="_blank" class="dfc-notice-btn">Abrir Plataforma →</a>
+    </div>
+
     <div class="card-grid" id="est-cards">
 
       <!-- FILA 1 -->
@@ -1046,7 +1118,7 @@ footer {
           <button class="btn btn-teal" onclick="downloadFile('calendario_pagos_est_2026.ics')">📲 Agregar a Calendario</button>
         </div>
         <details class="cal-instructions">
-          <summary>¿Cómo activar avisos de pago en mi celular?</summary>
+          <summary>¿Cómo agregar a mi calendario?</summary>
           <div class="cal-instructions-body">
             <strong>📱 Android</strong>
             <ol><li>Toca "📲 Agregar a Calendario"</li><li>Abre el archivo desde Descargas</li><li>Google Calendar pedirá confirmar — toca <em>Aceptar</em></li></ol>
