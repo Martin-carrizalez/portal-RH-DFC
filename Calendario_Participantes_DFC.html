@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendario para Participantes - Carrera Administrativa 2026</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Arial', sans-serif; margin: 40px; color: #333; line-height: 1.5; background-color: #ffffff; }
+        .header { border-bottom: 3px solid #f39200; padding-bottom: 15px; margin-bottom: 20px; }
+        .header-container { display: table; width: 100%; }
+        .header-left { display: table-cell; vertical-align: middle; }
+        .header-right { display: table-cell; text-align: right; vertical-align: middle; }
+        .header h1 { font-size: 15px; margin: 0; color: #555; font-weight: bold; }
+        .header h2 { font-size: 13px; margin: 5px 0 0 0; color: #f39200; font-weight: bold; }
+        .logo-img { max-height: 55px; width: auto; display: inline-block; }
+        .title { text-align: center; margin-bottom: 25px; }
+        .title h3 { font-size: 16px; margin: 0; font-weight: bold; color: #222; }
+        .title p { font-size: 12px; margin: 5px 0 0 0; color: #666; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 12px; }
+        th { background-color: #f39200; color: white; padding: 10px; text-align: left; font-weight: bold; text-transform: uppercase; }
+        td { padding: 12px 10px; border-bottom: 1px solid #ccc; vertical-align: top; }
+        tr:hover { background-color: #f9f9f9; }
+        .fase-usuario { background-color: #fff3cd; font-weight: bold; border-left: 5px solid #ffc107; }
+        .nota-importante { background-color: #f7f7f7; border: 1px dashed #f39200; padding: 12px; margin-top: 20px; font-size: 11px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <h1>SECRETARÍA DE EDUCACIÓN DEL ESTADO DE JALISCO</h1>
+                <h2>DIRECCIÓN DE FORMACIÓN CONTINUA</h2>
+            </div>
+            <div class="header-right">
+                <img src="data:image/png;base64,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" class="logo-img" alt="Logo DFC">
+            </div>
+        </div>
+    </div>
+
+    <div class="title">
+        <h3>GUÍA DE FECHAS PARA EL TRABAJADOR PARTICIPANTE</h3>
+        <p>Proceso de Incorporación al Sistema de Carrera Administrativa (Estímulo B1)</p>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 25%;">¿Qué debes hacer?</th>
+                <th style="width: 20%;">¿Cuándo se hace?</th>
+                <th style="width: 20%;">¿Qué documentos necesitas?</th>
+                <th style="width: 35%;">Detalles importantes de la etapa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="fase-usuario">
+                <td>1. Solicitar tu Inscripción al proceso</td>
+                <td>Del 09 al 23 de julio de 2026</td>
+                <td>Cédula de Inscripción (Anexo 1) requisitada y firmada.</td>
+                <td>Es la entrega inicial. Debes presentarte en la ventanilla de Recursos Humanos de la Dirección para registrar tu solicitud. Se sugiere llevar copias para tu acuse.</td>
+            </tr>
+            <tr>
+                <td>2. Evaluación de Desempeño Laboral</td>
+                <td>Del 24 de julio al 10 de agosto de 2026</td>
+                <td>Ninguno (Trámite interno).</td>
+                <td>Tu jefe inmediato llenará la cédula oficial aplicando la evaluación correspondiente a las funciones de tu puesto de forma exclusiva.</td>
+            </tr>
+            <tr class="fase-usuario">
+                <td>3. Entrega y Validación de tu Expediente Completo</td>
+                <td>Del 11 de agosto al 08 de septiembre de 2026</td>
+                <td>Identificación oficial, constancia de antigüedad, documentos de estudio y constancias de cursos (mínimo 40 horas).</td>
+                <td>Deberás entregar toda tu documentación comprobatoria en original y copia en la ventanilla de RH para el cotejo, validación y armado de tu archivo definitivo.</td>
+            </tr>
+            <tr>
+                <td>4. Envío de expedientes a la SEJ</td>
+                <td>Del 08 al 11 de septiembre de 2026</td>
+                <td>Trámite interno de RH.</td>
+                <td>La Dirección enviará todos los expedientes validados de los participantes a las oficinas centrales de la Comisión Mixta Rectora Estatal.</td>
+            </tr>
+            <tr class="fase-usuario">
+                <td>5. Revisión de Resultados de la Evaluación</td>
+                <td>21 de septiembre de 2026</td>
+                <td>Consultar listas en la Dirección.</td>
+                <td>Se publicarán los resultados de la Evaluación Global. Si consideras que tu puntaje no coincide con tus documentos, tendrás del 22 de septiembre al 12 de octubre para meter un escrito de inconformidad (Anexo 11).</td>
+            </tr>
+            <tr>
+                <td>6. Resultados Finales e Incorporación</td>
+                <td>02 de diciembre de 2026</td>
+                <td>Trámite concluido.</td>
+                <td>Publicación oficial de la lista definitiva de los trabajadores dictaminados favorablemente que se incorporan al Sistema de Carrera Administrativa.</td>
+            </tr>
+            <tr>
+                <td>7. Pago del Estímulo Económico</td>
+                <td>A partir de enero de 2027</td>
+                <td>Nómina quincenal.</td>
+                <td>Se verá reflejado bajo el concepto "CARRERA ADMINISTRATIVA B1", equivalente a un estímulo bruto de $320.00 pesos pagaderos de forma quincenal.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="nota-importante">
+        <strong>REQUISITOS INDISPENSABLES PARA PARTICIPAR (BASE SEGUNDA):</strong><br>
+        • Contar con nombramiento definitivo (Código 10), estar activo y desempeñando las funciones de tu categoría.<br>
+        • Antigüedad mínima de 5 años de servicio efectivos cumplidos al 1 de diciembre de 2026.<br>
+        • Contar con constancias de capacitación que sumen mínimo 40 horas en cursos autorizados por el catálogo oficial de la SEJ. Únicamente por este año 2026, puedes sumar constancias de varios cursos para cubrir las 40 horas.<br>
+        • Obtener un puntaje mínimo de 70 puntos en la evaluación global para tener derecho a la prelación.
+    </div>
+
+</body>
+</html>

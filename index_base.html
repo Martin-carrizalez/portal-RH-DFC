@@ -675,101 +675,6 @@ main {
   border-color: rgba(13,148,136,0.55);
 }
 
-/* ── SCA 2026 BANNER ───────────────────────── */
-.sca-banner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  background: linear-gradient(135deg, rgba(242,140,30,0.08) 0%, rgba(217,118,12,0.05) 100%);
-  border: 1px solid rgba(242,140,30,0.30);
-  border-left: 4px solid #F28C1E;
-  border-radius: 10px;
-  padding: 18px 22px;
-  margin-bottom: 22px;
-  flex-wrap: wrap;
-}
-
-.sca-banner-left { flex: 1; min-width: 200px; }
-
-.sca-badge {
-  display: inline-block;
-  font-size: 0.72rem;
-  font-family: var(--mono);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  background: rgba(242,140,30,0.12);
-  border: 1px solid rgba(242,140,30,0.35);
-  color: #D9760C;
-  padding: 3px 10px;
-  border-radius: 20px;
-  margin-bottom: 8px;
-}
-
-.sca-banner-left h3 {
-  margin: 0 0 6px 0;
-  font-size: 1rem;
-  color: var(--text-main);
-}
-
-.sca-banner-left p {
-  margin: 0;
-  font-size: 0.87rem;
-  color: var(--text-mid);
-  line-height: 1.5;
-}
-
-.sca-banner-dates {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-}
-
-.sca-date-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: var(--bg-card, #fff);
-  border: 1px solid rgba(242,140,30,0.25);
-  border-radius: 8px;
-  padding: 10px 16px;
-  min-width: 90px;
-}
-
-.sca-date-label {
-  font-size: 0.68rem;
-  font-family: var(--mono);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-soft, #94a3b8);
-}
-
-.sca-date-val {
-  font-size: 0.92rem;
-  font-weight: 700;
-  color: #D9760C;
-  margin-top: 3px;
-  white-space: nowrap;
-}
-
-.sca-date-sep {
-  font-size: 1.1rem;
-  color: rgba(242,140,30,0.4);
-}
-
-.card-badge-orange {
-  background: rgba(242,140,30,0.10);
-  border-color: rgba(242,140,30,0.35);
-  color: #D9760C;
-}
-
-.card-badge-green {
-  background: rgba(16,185,129,0.10);
-  border-color: rgba(16,185,129,0.30);
-  color: var(--green);
-}
-
 /* ── DFC SYSTEM NOTICE ─────────────────────── */
 .dfc-notice {
   display: flex;
@@ -1046,7 +951,7 @@ footer {
       <div class="dfc-notice-icon">💻</div>
       <div class="dfc-notice-text">
         <strong>¿Eres personal del piso 5 o 6 de las oficinas de la DFC?</strong>
-        <span>Los días económicos, pases de salida, comisiones y cambios de horario se registran directamente en la plataforma — no se requiere formato impreso.</span>
+        <span>Los días económicos, pases de salida, comisiones y cambios de horario se registran directamente en la siguiente plataforma.</span>
       </div>
       <a href="https://gestion-personal-dfc.streamlit.app/" target="_blank" class="dfc-notice-btn">Abrir Plataforma →</a>
     </div>
@@ -1137,97 +1042,7 @@ footer {
       </a>
     </div>
 
-    <!-- ══ CARRERA ADMINISTRATIVA 2026 ══ -->
     <div class="section-header">
-      <span class="section-header-label">Carrera Administrativa 2026</span>
-      <div class="section-header-line"></div>
-    </div>
-
-    <div class="sca-banner">
-      <div class="sca-banner-left">
-        <span class="sca-badge">🟢 PROCESO ACTIVO</span>
-        <h3>Inscripción abierta · Incentivo B1</h3>
-        <p>Entrega tu <strong>Cédula de Inscripción (Anexo 1)</strong> del <strong>9 al 23 de julio de 2026</strong>. El expediente completo se entrega del 11 de agosto al 8 de septiembre.</p>
-      </div>
-      <div class="sca-banner-dates">
-        <div class="sca-date-block">
-          <span class="sca-date-label">Inscripción</span>
-          <span class="sca-date-val">9 – 23 Jul</span>
-        </div>
-        <div class="sca-date-sep">→</div>
-        <div class="sca-date-block">
-          <span class="sca-date-label">Expediente</span>
-          <span class="sca-date-val">11 Ago – 8 Sep</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="card-grid" id="sca-cards">
-
-      <div class="card" data-search="cédula inscripción anexo 1 SCA carrera administrativa ficha">
-        <div class="card-top">
-          <div class="card-icon">📝</div>
-          <span class="card-badge card-badge-orange">PASO 1</span>
-        </div>
-        <h3>Cédula de Inscripción</h3>
-        <p>Anexo 1 oficial — F-SCA/R14-C01. Llénala digitalmente y entrégala del 9 al 23 de julio. Marca <strong>Incorporación</strong>, no Promoción.</p>
-        <div class="card-actions">
-          <button class="btn btn-primary" onclick="downloadFile('Anexo1_VERSION_A_con_linea_firma.pdf')">📥 Descargar Anexo 1</button>
-        </div>
-      </div>
-
-      <div class="card" data-search="guía llenado instrucciones ficha inscripción SCA carrera administrativa">
-        <div class="card-top">
-          <div class="card-icon">📖</div>
-          <span class="card-badge card-badge-orange">PASO 1</span>
-        </div>
-        <h3>Guía de Llenado</h3>
-        <p>Instrucciones campo por campo para completar correctamente la Cédula de Inscripción. Elaborada conforme al webinar oficial de la convocatoria.</p>
-        <div class="card-actions">
-          <button class="btn btn-primary" onclick="downloadFile('Guia_Llenado_Ficha_Inscripcion_SCA.pdf')">📥 Descargar Guía</button>
-        </div>
-      </div>
-
-      <div class="card" data-search="checklist expediente documentos requisitos SCA carrera administrativa">
-        <div class="card-top">
-          <div class="card-icon">✅</div>
-          <span class="card-badge card-badge-green">PASO 2</span>
-        </div>
-        <h3>Checklist del Expediente</h3>
-        <p>Lista de verificación con los documentos requeridos en cada etapa. Marca cada punto conforme vayas reuniendo tu expediente.</p>
-        <div class="card-actions">
-          <button class="btn btn-primary" onclick="downloadFile('Checklist_Expediente_SCA.pdf')">📥 Descargar Checklist</button>
-        </div>
-      </div>
-
-      <div class="card" data-search="catálogo cursos capacitación 40 horas SCA carrera administrativa">
-        <div class="card-top">
-          <div class="card-icon">📚</div>
-          <span class="card-badge card-badge-green">PASO 2</span>
-        </div>
-        <h3>Catálogo de Cursos</h3>
-        <p>Cursos oficiales SEJ válidos para acreditar las <strong>40 horas de capacitación</strong> requeridas. Puedes sumar varios cursos.</p>
-        <div class="card-actions">
-          <a href="Catalogo_Cursos_Carrera_Administrativa_DFC.html" target="_blank" class="btn btn-teal">🔗 Ver Catálogo</a>
-        </div>
-      </div>
-
-      <div class="card" data-search="calendario fechas etapas participante SCA carrera administrativa 2026">
-        <div class="card-top">
-          <div class="card-icon">🗓️</div>
-          <span class="card-badge">GUÍA</span>
-        </div>
-        <h3>Calendario del Participante</h3>
-        <p>Fechas y etapas del proceso ordenadas cronológicamente. Consulta qué debes entregar y cuándo en cada momento del proceso.</p>
-        <div class="card-actions">
-          <a href="Calendario_Participantes_DFC.html" target="_blank" class="btn btn-teal">🔗 Ver Calendario</a>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- ══ FORMATOS Y DOCUMENTOS ══ -->
-    <div class="section-header" style="margin-top:40px">
       <span class="section-header-label">Formatos y Documentos</span>
       <div class="section-header-line"></div>
     </div>
@@ -1236,7 +1051,7 @@ footer {
       <div class="dfc-notice-icon">💻</div>
       <div class="dfc-notice-text">
         <strong>¿Eres personal del piso 5 o 6 de las oficinas de la DFC?</strong>
-        <span>Los días económicos, pases de salida, comisiones y cambios de horario se registran directamente en la plataforma — no se requiere formato impreso.</span>
+        <span>Los días económicos, pases de salida, comisiones y cambios de horario se registran directamente en la siguiente plataforma.</span>
       </div>
       <a href="https://gestion-personal-dfc.streamlit.app/" target="_blank" class="dfc-notice-btn">Abrir Plataforma →</a>
     </div>
